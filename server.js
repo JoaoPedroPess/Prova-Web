@@ -6,7 +6,6 @@ app.use(express.static('public'));
 
 app.get('/pokemons', async (req, res) => {
   try {
-    // Busca os primeiros 10 pokémons
     const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10');
     const data = await response.json();
 
@@ -19,7 +18,6 @@ app.get('/pokemons', async (req, res) => {
       const habilidades = pokemonDetalhes.abilities.map(h => h.ability.name);
       const imagem = pokemonDetalhes.sprites.front_default;
 
-      // Buscar evolução
       const speciesData = await fetch(pokemonDetalhes.species.url).then(res => res.json());
       const evolutionData = await fetch(speciesData.evolution_chain.url).then(res => res.json());
 

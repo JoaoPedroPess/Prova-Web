@@ -10,10 +10,36 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #f00;
+      background-color: rgb(89, 24, 24);
       font-family: sans-serif;
     }
 
+    #pokemon-list {
+      position: absolute;
+      top: 50px;
+      left: 750px; 
+      width: 200px;
+      max-height: 400px;
+      overflow-y: auto;
+      background-color: #00cc00;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+      list-style: none;
+    }
+
+    #pokemon-list li {
+      margin-bottom: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #pokemon-list li:hover {
+      color: #fff;
+      background-color: #008800;
+      padding: 2px 6px;
+      border-radius: 5px;
+    }
   </style>
 </head>
 
@@ -39,14 +65,10 @@
       </div>
 
       <div id="screen">
-        <div id="topPicture">
-          <div id="buttontopPicture1"></div>
-          <div id="buttontopPicture2"></div>
-        </div>
-        <!-- <div id="picture">
+        <div id="picture">
           <img id="pokemonImage" title="Click e altere imagem" height="170" />
-        </div> -->
-        <ul id="pokemon-list"></ul>
+        </div>
+
         <div id="buttonbottomPicture"></div>
         <div id="speakers">
           <div class="sp"></div>
@@ -87,8 +109,7 @@
     </div>
   </div>
 
-  <p><strong>Imagem:</strong> <br><img id="imagem" src="" alt="Imagem do Pokémon" /></p>
-
+  <ul id="pokemon-list"></ul>
 
   <script>
     fetch('/pokemons')
@@ -102,13 +123,10 @@
             document.getElementById('nome').textContent = pokemon.nome;
             document.getElementById('habilidades').textContent = pokemon.habilidades.join(', ');
             document.getElementById('evolucao').textContent = pokemon.evolucao;
-            document.getElementById('pokemonImage').src = pokemon.imagem || ''; // Se tiver imagem
+            document.getElementById('pokemonImage').src = pokemon.imagem || '';
           });
           list.appendChild(item);
         });
-      })
-      .catch(err => {
-        console.error('Erro ao buscar pokémons:', err);
       });
   </script>
 </body>

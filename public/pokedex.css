@@ -1,21 +1,31 @@
 div#pokedex 
 {
-    width: 750px;
+    width: 800px;
     margin: 50px auto 0 auto;
 }
 
-#pokemon-list {
-    list-style: none;
-    padding: 0;
-    margin: 10px;
-    background-color: #fff;
-    border-radius: 8px;
-    width: 100%;
-    max-height: 150px;
+.container {
+    position: fixed;
+  }
+  
+  .pokedex {
+    width: 700px;
+    float: left;
+  }
+  
+  .lista-pokemon {
+    position: fixed;
+    top: 50px;
+    left: 850px; 
+    width: 200px;
+    height: 400px;
     overflow-y: auto;
-    font-size: 12px;
-}
-
+    background: lime;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 9999;
+  }
+  
 div#left
 {
     width: 400px;
@@ -97,7 +107,7 @@ div#curve2_left
 
 div#bg_curve2_left
 {
-    width: 400px;
+    width: 200px;
     height: 420px;
     background-color: #c00d0d;
 
@@ -222,7 +232,7 @@ div#miniButtonGlass3
 
 div#junction
 {
-    width: 60px;
+    width: 40px;
     height: 451px;
     float: right;
     
